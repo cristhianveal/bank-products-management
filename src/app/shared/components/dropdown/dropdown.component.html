@@ -1,0 +1,10 @@
+<div class="dropdown-container">
+    <!-- Botón activador -->
+    <button class="dropdown-trigger" (click)="toggle()" type="button">
+            <i class="dots-icon">⋮</i>
+        </button> @if (isOpen) {
+    <div class="dropdown-menu">
+        <ng-content></ng-content>
+    </div>
+    }
+</div>

@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="top-bar">
+        <div class="search-container">
+            <input type="text" placeholder="Search..." [formControl]="searchControl" class="search-input">
+        </div>
+        <button class="btn-primary" (click)="goToAddProduct()">Agregar</button>
+    </div>
+
+    <div class="alert-container">
+        @if (successMessage) {
+        <div class="alert alert-success">
+            {{ successMessage }}
+            <span class="close-btn" (click)="successMessage = ''">&times;</span>
+        </div>
+        } @if (errorMessage) {
+        <div class="alert alert-error">
+            {{ errorMessage }}
+            <span class="close-btn" (click)="errorMessage = ''">&times;</span>
+        </div>
+        }
+    </div>
+
+    <div class="table-container">
+
+        @if (loading) {
+        <div class="skeleton-wrapper">
+            <app-skeleton height="50px" width="100%" style="margin-bottom: 10px; display: block;"></app-skeleton>
+            <app-skeleton height="50px" width="100%" style="margin-bottom: 10px; display: block;"></app-skeleton>
+            <app-skeleton height="50px" width="100%" style="margin-bottom: 10px; display: block;"></app-skeleton>
+        </div>
+        } @else {
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Nombre del producto</th>
+                    <th>Descripción <i class="info-icon">ⓘ</i></th>
+                    <th>Fecha de liberación <i class="info-icon">ⓘ</i></th>
+                    <th>Fecha de reestructuración <i class="info-icon">ⓘ</i></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (product of filteredProducts$ | async; track product.id) {
+                <tr>
+                    <td>
+                        <img [src]="product.logo" alt="Icono Tarjeta" class="product-logo" onerror="this.src='assets/placeholder.png'">
+                    </td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.date_release | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ product.date_revision | date:'dd/MM/yyyy' }}</td>
+                    <td class="actions-cell">
+                        <app-dropdown>
+                            <button (click)="editProduct(product)">Editar</button>
+                            <button (click)="openDeleteModal(product)">Eliminar</button>
+                        </app-dropdown>
+                    </td>
+                </tr>
+                } @empty {
+                <tr>
+                    <td colspan="6" style="text-align: center; padding: 20px;">No se encontraron resultados.</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        }
+
+        <div class="table-footer">
+            <span class="results-count">
+                {{ (filteredProducts$ | async)?.length }} Resultados
+            </span>
+            <div class="pagination-select">
+                <select [formControl]="itemsPerPageControl">
+                    <option [ngValue]="5">5</option>
+                    <option [ngValue]="10">10</option>
+                    <option [ngValue]="20">20</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-modal [isVisible]="showDeleteModal" [message]="'¿Estás seguro de eliminar el producto ' + selectedProductForDelete?.name + '?'" (confirm)="confirmDelete()" (cancel)="showDeleteModal = false">
+</app-modal>

@@ -1,0 +1,53 @@
+/*VARIABLES GLOBALES*/
+
+
+/* Contenedor principal para el centrado del logo superior */
+
+.header-container {
+    width: 100%;
+    display: flex;
+    /*  Centra el logo horizontalmente */
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+
+/* Contenedor principal del contenido (Tabla/Formulario) */
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+
+/* 
+   ESTILOS DE LOGO (HEADER)*/
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-left: 10px;
+}
+
+.logo-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: var(--secondary-color);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}

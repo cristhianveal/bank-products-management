@@ -1,1 +1,107 @@
-/* You can add global styles to this file, and also import other style files */
+/*Variables Globales */
+
+:root {
+    --primary-color: #ffdd00;
+    /* Amarillo del botón "Enviar" [cite: 70] */
+    --secondary-color: #0f265c;
+    /* Azul oscuro del header "BANCO" [cite: 37] */
+    --text-color: #333333;
+    --bg-color: #f5f5f5;
+    --border-color: #ddd;
+    --error-color: #d93025;
+    /* Rojo para errores [cite: 35] */
+    --white: #ffffff;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    /* Fuente limpia */
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+/* Utilidad para contenedores */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+
+/* Input Styles - Design D2 */
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    /* Full width container */
+    box-sizing: border-box;
+    &:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        /* Focus color */
+    }
+    &.error {
+        border-color: var(--error-color);
+        /* Borde rojo si hay error [cite: 35] */
+    }
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+
+/* Botón Principal (Agregar / Enviar) */
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 12px 24px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    /* Para routerLinks */
+    display: inline-block;
+    font-size: 14px;
+}
+
+
+/* Botón Secundario (Reiniciar) */
+
+.btn-secondary {
+    background-color: #e6e6e6;
+    /* Gris claro */
+    color: var(--secondary-color);
+    padding: 12px 24px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+}

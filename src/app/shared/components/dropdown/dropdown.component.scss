@@ -1,0 +1,42 @@
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-trigger {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--secondary-color);
+    padding: 0 10px;
+    line-height: 1;
+    /* Para centrar los puntos */
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+     ::ng-deep button {
+        color: black;
+        padding: 10px 16px;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 14px;
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+}
