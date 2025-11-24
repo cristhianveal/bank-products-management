@@ -57,7 +57,7 @@ export class ProductFormComponent implements OnInit {
   /**
    * Regla de Negocio: Fecha Revisión = Fecha Liberación + 1 Año
   */
-  private calculateRevisionDate(releaseDate: string): void {
+  public calculateRevisionDate(releaseDate: string): void {
     const date = new Date(releaseDate + 'T00:00:00');
     date.setFullYear(date.getFullYear() + 1);
     
