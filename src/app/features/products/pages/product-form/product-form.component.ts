@@ -137,7 +137,7 @@ export class ProductFormComponent implements OnInit {
       // ACTUALIZAR
       this.productService.updateProduct(formValue).subscribe({
         next: () => {
-          // 🔑 CORRECCIÓN: Usar la clave 'message'
+          // CORRECCIÓN: Usar la clave 'message'
           this.router.navigate(['/products'], { 
             state: { message: 'Producto editado correctamente.' } 
           });

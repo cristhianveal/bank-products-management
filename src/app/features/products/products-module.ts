@@ -20,6 +20,7 @@ import { ProductFormComponent } from './pages/product-form/product-form.componen
     SharedModule,
     ReactiveFormsModule,
     FormsModule
-  ]
+  ],
+  
 })
 export class ProductsModule { }
